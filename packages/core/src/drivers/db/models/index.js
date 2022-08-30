@@ -5,7 +5,15 @@ const { Pais, PaisSchema } = require('./pais');
 const { Estado, EstadoSchema } = require('./estado');
 const { Municipio, MunicipioSchema } = require('./municipio');
 const { Domicilio, DomicilioSchema } = require('./domicilio');
-
+const { Institucion, InstitucionSchema } = require('./institucion');
+const { Plantel, PlantelSchema } = require('./plantel');
+const { Academia, AcademiaSchema } = require('./academia');
+const { AlumnoObservacion, AlumnoObservacionSchema } = require('./alumnoObservacion');
+/*
+const { Alumno, AlumnoSchema } = require('.Alumno');
+const { AlumnoGrupo, AlumnoGrupoSchema } = require('.AlumnoGrupo');
+const { Asignatura, AsignaturaSchema } = require('.Asignatura');
+*/
 function setupModels(sequelize) {
   Rol.init(RolSchema, Rol.config(sequelize));
   Pais.init(PaisSchema, Pais.config(sequelize));
@@ -14,6 +22,15 @@ function setupModels(sequelize) {
   Domicilio.init(DomicilioSchema, Domicilio.config(sequelize));
   Persona.init(PersonaSchema, Persona.config(sequelize));
   Usuario.init(UsuarioSchema, Usuario.config(sequelize));
+  Institucion.init(InstitucionSchema, Institucion.config(sequelize));
+  Plantel.init(PlantelSchema, Plantel.config(sequelize));
+  Academia.init(AcademiaSchema, Academia.config(sequelize));
+  AlumnoObservacion.init(AlumnoObservacionSchema, AlumnoObservacion.config(sequelize));
+  /*
+  Alumno.init(AlumnoSchema, Alumno.config(sequelize));
+  Alumno_grupo.init(Alumno_grupoSchema, Alumno_grupo.config(sequelize));
+  Asignatura.init(AsignaturaSchema, Asignatura.config(sequelize));
+ */
 
   Rol.associate(sequelize.models);
   Pais.associate(sequelize.models);
@@ -22,6 +39,15 @@ function setupModels(sequelize) {
   Domicilio.associate(sequelize.models);
   Persona.associate(sequelize.models);
   Usuario.associate(sequelize.models);
+  Institucion.associate(sequelize.models);
+  Plantel.associate(sequelize.models);
+  Academia.associate(sequelize.models);
+  AlumnoObservacion.associate(sequelize.models);
+  /*
+  Alumno.associate(sequelize.models);
+  AlumnoGrupo.associate(sequelize.models);
+  Asignatura.associate(sequelize.models);
+  AsignaturaHemerobibliografica.associate(sequelize.models); */
 }
 
 module.exports = setupModels;
