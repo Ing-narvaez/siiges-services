@@ -9,6 +9,9 @@ const { Institucion, InstitucionSchema } = require('./institucion');
 const { Plantel, PlantelSchema } = require('./plantel');
 const { Academia, AcademiaSchema } = require('./academia');
 const { AlumnoObservacion, AlumnoObservacionSchema } = require('./alumnoObservacion');
+const { Evaluador, EvaluadorSchema } = require('./evaluador');
+//const { Ciclo, CicloSchema } = require('./ciclo');
+//const { Nivel, NivelSchema } = require('./nivel');
 /*
 const { Alumno, AlumnoSchema } = require('.Alumno');
 const { AlumnoGrupo, AlumnoGrupoSchema } = require('.AlumnoGrupo');
@@ -26,6 +29,9 @@ function setupModels(sequelize) {
   Plantel.init(PlantelSchema, Plantel.config(sequelize));
   Academia.init(AcademiaSchema, Academia.config(sequelize));
   AlumnoObservacion.init(AlumnoObservacionSchema, AlumnoObservacion.config(sequelize));
+  Evaluador.init(EvaluadorSchema, Evaluador.config(sequelize));
+  //Ciclo.init(CicloSchema, Ciclo.config(sequelize));
+  //Nivel.init(NivelSchema, Nivel.config(sequelize));
   /*
   Alumno.init(AlumnoSchema, Alumno.config(sequelize));
   Alumno_grupo.init(Alumno_grupoSchema, Alumno_grupo.config(sequelize));
@@ -43,6 +49,9 @@ function setupModels(sequelize) {
   Plantel.associate(sequelize.models);
   Academia.associate(sequelize.models);
   AlumnoObservacion.associate(sequelize.models);
+  Evaluador.associate(sequelize.models);
+  //Ciclo.associate(sequelize.models);
+  //Nivel.associate(sequelize.models)
   /*
   Alumno.associate(sequelize.models);
   AlumnoGrupo.associate(sequelize.models);

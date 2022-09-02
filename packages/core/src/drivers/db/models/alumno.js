@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const { PERSONA_TABLE } = require('./persona');
+// Nota: Falta añadir más elementos (programa, situación, tipo_tramite_id)
 
 const ALUMNO_TABLE = 'alumno';
 
@@ -64,6 +65,22 @@ const AlumnoSchema = {
   estatusCertificado: {
     type: DataTypes.INTEGER,
     field: 'estatus_certificado',
+  },
+  createdAt: {
+    allowNull: false,
+    type: DataTypes.DATE,
+    field: 'created_at',
+    defaultValue: Sequelize.NOW,
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    field: 'updated_at',
+    defaultValue: null,
+  },
+  deletedAt: {
+    type: DataTypes.DATE,
+    field: 'deleted_at',
+    defaultValue: null,
   },
 };
 

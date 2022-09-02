@@ -9,6 +9,9 @@ const { PLANTEL_TABLE, PlantelSchema } = require('../models/plantel'); // ------
 const { INSTITUCION_TABLE, InstitucionSchema } = require('../models/institucion');
 const { ACADEMIA_TABLE, AcademiaSchema } = require('../models/academia');
 const { ALUMNO_OBSERVACION_TABLE, AlumnoObservacionSchema } = require('../models/alumnoObservacion');
+const { EVALUADOR_TABLE, EvaluadorSchema } = require('../models/evaluador');
+//const { CICLO_TABLE, CicloSchema } = require('../models/ciclo');
+//const { NIVEL_TABLE, NivelSchema } = require('../models/nivel');
 /*
 const { Alumno_TABLE, AlumnoSchema } = require('../models/Alumno');
 const { Alumno_grupo_TABLE, Alumno_grupoSchema } = require('../models/alumnoGrupo');
@@ -26,10 +29,13 @@ module.exports = {
     await queryInterface.createTable(PLANTEL_TABLE, PlantelSchema);
     await queryInterface.createTable(ACADEMIA_TABLE, AcademiaSchema);
     await queryInterface.createTable(ALUMNO_OBSERVACION_TABLE, AlumnoObservacionSchema);
+    await queryInterface.createTable(EVALUADOR_TABLE, EvaluadorSchema);
+    //await queryInterface.createTable(CICLO_TABLE, CicloSchema);
+    //await queryInterface.createTable(NIVEL_TABLE, NivelSchema);
     /*
     await queryInterface.createTable(Alumno_TABLE, AlumnoSchema);
     await queryInterface.createTable(Alumno_grupo_TABLE, Alumno_grupoSchema);
-    await queryInterface.createTable(Asignatura_TABLE, AsignaturaSchema);
+    await queryInterface.createTable(Asignatura_TABLE, AsignaturaSchema);*/
   },
 
   async down(queryInterface) {
@@ -44,6 +50,9 @@ module.exports = {
     await queryInterface.dropTable(PLANTEL_TABLE);
     await queryInterface.dropTable(ACADEMIA_TABLE);
     await queryInterface.dropTable(ALUMNO_OBSERVACION_TABLE);
+    //await queryInterface.dropTable(EVALUADOR_TABLE);
+    //await queryInterface.dropTable(CICLO_TABLE);
+   // await queryInterface.dropTable(NIVEL_TABLE);
     /*
     await queryInterface.dropTable(Alumno_TABLE);
     await queryInterface.dropTable(Alumno_grupo_TABLE);
