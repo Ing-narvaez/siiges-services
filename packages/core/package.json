@@ -28,7 +28,7 @@
     "test:watch": "jest --watch",
     "precommit": "yarn lint && yarn test",
     "migrations:generate": "sequelize-cli migration:generate --name",
-    "migrations:run": "sequelize-cli db:migrate",
+    "migrations:run": "sequelize-cli db:migrate --debug",
     "migrations:revert": "sequelize-cli db:migrate:undo",
     "migrations:delete": "sequelize-cli db:migrate:undo:all",
     "seeds:generate": "sequelize-cli seed:generate --name",

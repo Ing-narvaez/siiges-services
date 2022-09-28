@@ -1,8 +1,8 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 
-const ROL_TABLE = 'roles';
+const MODALIDAD_TABLE = 'Modalidades';
 
-const RolSchema = {
+const ModalidadSchema = {
   id: {
     allowNull: false,
     autoIncrement: true,
@@ -10,13 +10,12 @@ const RolSchema = {
     type: DataTypes.INTEGER,
   },
   nombre: {
-    allowNull: false,
     type: DataTypes.STRING,
-    unique: true,
+    allowNull: false,
   },
   descripcion: {
     type: DataTypes.STRING,
-    unique: true,
+    allowNull: false,
   },
   createdAt: {
     allowNull: false,
@@ -38,22 +37,18 @@ const RolSchema = {
   },
 };
 
-class Rol extends Model {
-  static associate(models) {
-    /* this.hasOne(models.Usuario, {
-      as: 'usuario',
-      foreignKey: 'rol',
-    }); */
+class Modalidad extends Model {
+  static associate() {
+
   }
 
   static config(sequelize) {
     return {
       sequelize,
-      tableName: ROL_TABLE,
-      modelName: 'Rol',
+      tableName: MODALIDAD_TABLE,
+      modelName: 'Modalidad',
       timestamps: false,
     };
   }
 }
-
-module.exports = { ROL_TABLE, RolSchema, Rol };
+module.exports = { MODALIDAD_TABLE, ModalidadSchema, Modalidad };

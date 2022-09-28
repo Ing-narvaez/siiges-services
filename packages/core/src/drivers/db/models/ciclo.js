@@ -2,7 +2,7 @@ const { Model, DataTypes, Sequelize } = require('sequelize');
 
 const CICLO_TABLE = 'ciclos';
 
-const cicloSchema = {
+const CicloSchema = {
     id: {
         allowNull: false,
         autoIncrement: true,
@@ -35,7 +35,7 @@ const cicloSchema = {
 };
 
 class Ciclo extends Model {
-    //static associate(models) {}
+    static associate(models) {}
   
     static config(sequelize) {
       return {
@@ -47,4 +47,4 @@ class Ciclo extends Model {
     }
   }
 
-  module.exports = { CICLO_TABLE, cicloSchema, Ciclo };
+  module.exports = { CICLO_TABLE, CicloSchema, Ciclo };
