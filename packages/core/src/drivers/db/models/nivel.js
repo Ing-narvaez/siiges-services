@@ -2,7 +2,7 @@ const { Model, DataTypes, Sequelize } = require('sequelize');
 
 const NIVEL_TABLE = 'niveles';
 
-const nivelSchema = {
+const NivelSchema = {
     id: {
         allowNull: false,
         autoIncrement: true,
@@ -47,4 +47,4 @@ class Nivel extends Model {
     }
   }
 
-  module.exports = { NIVEL_TABLE, nivelSchema, Nivel };
+  module.exports = { NIVEL_TABLE, NivelSchema, Nivel };

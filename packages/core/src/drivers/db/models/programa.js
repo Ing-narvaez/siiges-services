@@ -5,7 +5,7 @@ const { NIVEL_TABLE } = require('./nivel');
 const { SOLICITUD_TABLE } = require('./solicitud');
 const { MODALIDAD_TABLE } = require('./modalidad');
 const { PLANTEL_TABLE } = require('./plantel');
-const { PERSONA_TABLE } = require('./persona'); 
+const { PERSONA_TABLE } = require('./persona');
 
 const PROGRAMA_TABLE = 'programas';
 
@@ -15,10 +15,10 @@ const ProgramaSchema = {
     autoIncrement: true,
     primaryKey: true,
     type: DataTypes.INTEGER,
-},
-evaluador: {
+  },
+  evaluadorId: {
     type: DataTypes.INTEGER,
-    //field: 'evaluador_id',
+    field: 'evaluador_id',
     references: {
       model: EVALUADOR_TABLE,
       key: 'id',
@@ -42,7 +42,7 @@ evaluador: {
       key: 'id',
     },
   },
-  solicitudId: { 
+  solicitudId: {
     allowNull: false,
     type: DataTypes.INTEGER,
     field: 'solicitud_id',
@@ -51,7 +51,7 @@ evaluador: {
       key: 'id',
     },
   },
-  modalidad: {
+  modalidadId: {
     allowNull: false,
     type: DataTypes.INTEGER,
     //field: 'modalidad_id',
@@ -208,7 +208,7 @@ evaluador: {
   },
   objetivoGeneral: {
     type: DataTypes.STRING,
-    field:"objetivo_general",
+    field: "objetivo_general",
   },
   ovjetivosParticulares: {
     type: DataTypes.STRING,
@@ -222,7 +222,7 @@ evaluador: {
     type: DataTypes.DATE,
     field: 'fecha_asignacion_evaluador',
   },
-  calificacionMinima:{
+  calificacionMinima: {
     type: DataTypes.INTEGER,
     field: 'calificacion_minima',
   },
@@ -257,26 +257,26 @@ evaluador: {
     defaultValue: null,
   },
 };
-    class Programa extends Model {
-      static associate(models) {
-        this.belongsTo(models.Evaluador, { as: 'evaluador' });
-        this.belongsTo(models.Ciclo, { as: 'ciclo' });
-        this.belongsTo(models.Nivel, { as: 'nivel' });
-        this.belongsTo(models.Solicitud, { as: 'solicitud' });
-        this.belongsTo(models.Modalidad, { as: 'modalidad' });
-        this.belongsTo(models.Plantel, { as: 'plantel' });
-        this.belongsTo(models.Persona, { as: 'persona' });
-      }
-    
-      static config(sequelize) {
-        return {
-          sequelize,
-          tableName: PROGRAMA_TABLE,
-          modelName: 'Programa',
-          timestamps: false,
-        };
-      }
-    }
-    module.exports = { PROGRAMA_TABLE, ProgramaSchema, Programa };
-    
+class Programa extends Model {
+  static associate(models) {
+    this.belongsTo(models.Evaluador, { as: 'evaluador' });
+    this.belongsTo(models.Ciclo, { as: 'ciclo' });
+    this.belongsTo(models.Nivel, { as: 'nivel' });
+    this.belongsTo(models.Solicitud, { as: 'solicitud' });
+    this.belongsTo(models.Modalidad, { as: 'modalidad' });
+    this.belongsTo(models.Plantel, { as: 'plantel' });
+    this.belongsTo(models.Persona, { as: 'persona' });
+  }
+
+  static config(sequelize) {
+    return {
+      sequelize,
+      tableName: PROGRAMA_TABLE,
+      modelName: 'Programa',
+      timestamps: false,
+    };
+  }
+}
+module.exports = { PROGRAMA_TABLE, ProgramaSchema, Programa };
+
 

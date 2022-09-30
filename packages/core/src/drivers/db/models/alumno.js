@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, Sequelize } = require('sequelize');
 const { PERSONA_TABLE } = require('./persona');
 // Nota: Falta añadir más elementos (programa, situación, tipo_tramite_id)
 
@@ -20,6 +20,7 @@ const AlumnoSchema = {
       key: 'id',
     },
   },
+  /*
   situacionId: {
     allowNull: false,
     type: DataTypes.INTEGER,
@@ -33,7 +34,7 @@ const AlumnoSchema = {
   tipoTramiteId: {
     type: DataTypes.INTEGER,
     field: 'tipo_tramite_id',
-  },
+  },*/
   matricula: {
     allowNull: false,
     type: DataTypes.STRING,
@@ -87,9 +88,9 @@ const AlumnoSchema = {
 class Alumno extends Model {
   static associate(models) {
     this.belongsTo(models.Personas, { as: 'persona' });
-    this.belongsTo(models.Situaciones, { as: 'situacion' });
-    this.belongsTo(models.programas, { as: 'programa' });
-    this.belongsTo(models.TiposTramitesId, { as: 'tipo_tramite_id' });
+    //this.belongsTo(models.Situaciones, { as: 'situacion' });
+   // this.belongsTo(models.programas, { as: 'programa' });
+   // this.belongsTo(models.TiposTramitesId, { as: 'tipo_tramite_id' });
   }
 
   static config(sequelize) {

@@ -6,7 +6,7 @@ const { ESTADO_TABLE, EstadoSchema } = require('../models/estado');
 const { MUNICIPIO_TABLE, MunicipioSchema } = require('../models/municipio');
 const { DOMICILIO_TABLE, DomicilioSchema } = require('../models/domicilio');
 const { INSTITUCION_TABLE, InstitucionSchema } = require('../models/institucion');
-const { PLANTEL_TABLE, PlantelSchema } = require('../models/plantel'); // -------------
+const { PLANTEL_TABLE, PlantelSchema } = require('../models/plantel'); 
 const { ACADEMIA_TABLE, AcademiaSchema } = require('../models/academia');
 const { ALUMNO_OBSERVACION_TABLE, AlumnoObservacionSchema } = require('../models/alumnoObservacion');
 const { CICLO_TABLE, CicloSchema } = require('../models/ciclo');
@@ -14,12 +14,12 @@ const { TIPO_SOLICITUD_TABLE, TipoSolicitudSchema } = require('../models/TipoSol
 const { ESTATUS_SOLICITUD_TABLE, EstatusSolicitudSchema } = require('../models/EstatusSolicitud');
 const { EVALUADOR_TABLE, EvaluadorSchema } = require('../models/evaluador'); 
 const { SOLICITUD_TABLE, SolicitudSchema } = require('../models/solicitud');
-const { MODALIDAD_TABLE, ModalidadSchema } = require('../models/modalidad');
-const { NIVEL_TABLE, NivelSchema } = require('../models/nivel');
-//const { PROGRAMA_TABLE, ProgramaSchema } = require('../models/programa');
+const { MODALIDAD_TABLE, ModalidadSchema } = require('../models/modalidad'); 
+const { ALUMNO_TABLE, AlumnoSchema } = require('../models/Alumno');  //  Agregar a esta relación tablas situacion y tipoTramite
+const { NIVEL_TABLE, NivelSchema } = require('../models/nivel');  
+const { PROGRAMA_TABLE, ProgramaSchema } = require('../models/programa');
+//const { Alumno_grupo_TABLE, Alumno_grupoSchema } = require('../models/alumnoGrupo');
 /*
-const { Alumno_TABLE, AlumnoSchema } = require('../models/Alumno');
-const { Alumno_grupo_TABLE, Alumno_grupoSchema } = require('../models/alumnoGrupo');
 */
 module.exports = {
   async up(queryInterface) {
@@ -39,11 +39,11 @@ module.exports = {
     await queryInterface.createTable(ESTATUS_SOLICITUD_TABLE, EstatusSolicitudSchema);
     await queryInterface.createTable(EVALUADOR_TABLE, EvaluadorSchema); 
     await queryInterface.createTable(SOLICITUD_TABLE, SolicitudSchema);
-    //await queryInterface.createTable(MODALIDAD_TABLE, ModalidadSchema);
-    //await queryInterface.createTable(NIVEL_TABLE, NivelSchema);
-    //await queryInterface.createTable(PROGRAMA_TABLE, ProgramaSchema);
+    await queryInterface.createTable(MODALIDAD_TABLE, ModalidadSchema);
+    await queryInterface.createTable(ALUMNO_TABLE, AlumnoSchema); //  Agregar a esta relación tablas situacion y tipoTramite
+    await queryInterface.createTable(NIVEL_TABLE, NivelSchema);  
+    await queryInterface.createTable(PROGRAMA_TABLE, ProgramaSchema);
     /*
-    await queryInterface.createTable(Alumno_TABLE, AlumnoSchema);
     await queryInterface.createTable(Alumno_grupo_TABLE, Alumno_grupoSchema);
     await queryInterface.createTable(Asignatura_TABLE, AsignaturaSchema);*/
   },
@@ -61,15 +61,15 @@ module.exports = {
     await queryInterface.dropTable(ACADEMIA_TABLE);
     await queryInterface.dropTable(ALUMNO_OBSERVACION_TABLE);
     await queryInterface.dropTable(CICLO_TABLE);
-    //await queryInterface.dropTable(EVALUADOR_TABLE); 
+    await queryInterface.dropTable(MODALIDAD_TABLE);   //  En pruebas
+    await queryInterface.dropTable(NIVEL_TABLE); 
+    await queryInterface.dropTable(ALUMNO_TABLE);  // Agregar a esta relación tablas situacion y tipoTramite
+    await queryInterface.dropTable(EVALUADOR_TABLE); 
     await queryInterface.dropTable(SOLICITUD_TABLE); 
+    await queryInterface.dropTable(PROGRAMA_TABLE);
     /*await queryInterface.dropTable(TIPO_SOLICITUD_TABLE); 
     await queryInterface.dropTable(ESTATUS_SOLICITUD_TABLE); 
-    await queryInterface.dropTable(MODALIDAD_TABLE);
-    await queryInterface.dropTable(PROGRAMA_TABLE);
-    await queryInterface.dropTable(NIVEL_TABLE);
     /*
-    await queryInterface.dropTable(Alumno_TABLE);
     await queryInterface.dropTable(Alumno_grupo_TABLE);
     await queryInterface.dropTable(Asignatura_TABLE);
     await queryInterface.dropTable(Asignatura_hemerobibliografica_TABLE); */
