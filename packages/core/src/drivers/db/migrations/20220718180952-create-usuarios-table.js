@@ -18,9 +18,11 @@ const { MODALIDAD_TABLE, ModalidadSchema } = require('../models/modalidad');
 const { ALUMNO_TABLE, AlumnoSchema } = require('../models/Alumno');  //  Agregar a esta relación tablas situacion y tipoTramite
 const { NIVEL_TABLE, NivelSchema } = require('../models/nivel');  
 const { PROGRAMA_TABLE, ProgramaSchema } = require('../models/programa');
-//const { Alumno_grupo_TABLE, Alumno_grupoSchema } = require('../models/alumnoGrupo');
-/*
-*/
+const { CUMPLIMIENTO_TABLE, CumplimientoSchema } = require('../models/cumplimiento');
+const { PROGRAMA_EVALUACION_TABLE, ProgramaEvaluacionSchema} = require('../models/programaEvaluacion');
+const { EDIFICIO_NIVEL_TABLE, EdificioNivelSchema } = require('../models/edificioNivel');
+const { PLANTEL_EDIFICIO_NIVEL_TABLE, PlantelEdificioNivelSchema} = require('../models/plantelEdificioNivel');
+
 module.exports = {
   async up(queryInterface) {
     await queryInterface.createTable(ROL_TABLE, RolSchema);
@@ -43,9 +45,10 @@ module.exports = {
     await queryInterface.createTable(ALUMNO_TABLE, AlumnoSchema); //  Agregar a esta relación tablas situacion y tipoTramite
     await queryInterface.createTable(NIVEL_TABLE, NivelSchema);  
     await queryInterface.createTable(PROGRAMA_TABLE, ProgramaSchema);
-    /*
-    await queryInterface.createTable(Alumno_grupo_TABLE, Alumno_grupoSchema);
-    await queryInterface.createTable(Asignatura_TABLE, AsignaturaSchema);*/
+    await queryInterface.createTable(CUMPLIMIENTO_TABLE, CumplimientoSchema);
+    await queryInterface.createTable(PROGRAMA_EVALUACION_TABLE, ProgramaEvaluacionSchema);
+    await queryInterface.createTable(EDIFICIO_NIVEL_TABLE, EdificioNivelSchema);
+    await queryInterface.createTable(PLANTEL_EDIFICIO_NIVEL_TABLE, PlantelEdificioNivelSchema);
   },
 
   async down(queryInterface) {
@@ -61,17 +64,15 @@ module.exports = {
     await queryInterface.dropTable(ACADEMIA_TABLE);
     await queryInterface.dropTable(ALUMNO_OBSERVACION_TABLE);
     await queryInterface.dropTable(CICLO_TABLE);
-    await queryInterface.dropTable(MODALIDAD_TABLE);   //  En pruebas
+    await queryInterface.dropTable(MODALIDAD_TABLE); 
     await queryInterface.dropTable(NIVEL_TABLE); 
     await queryInterface.dropTable(ALUMNO_TABLE);  // Agregar a esta relación tablas situacion y tipoTramite
     await queryInterface.dropTable(EVALUADOR_TABLE); 
     await queryInterface.dropTable(SOLICITUD_TABLE); 
     await queryInterface.dropTable(PROGRAMA_TABLE);
-    /*await queryInterface.dropTable(TIPO_SOLICITUD_TABLE); 
-    await queryInterface.dropTable(ESTATUS_SOLICITUD_TABLE); 
-    /*
-    await queryInterface.dropTable(Alumno_grupo_TABLE);
-    await queryInterface.dropTable(Asignatura_TABLE);
-    await queryInterface.dropTable(Asignatura_hemerobibliografica_TABLE); */
+    await queryInterface.dropTable(CUMPLIMIENTO_TABLE);
+    await queryInterface.dropTable(PROGRAMA_EVALUACION_TABLE);
+    await queryInterface.dropTable(EDIFICIO_NIVEL_TABLE);
+    await queryInterface.dropTable(PLANTEL_EDIFICIO_NIVEL_TABLE);
   },
 };

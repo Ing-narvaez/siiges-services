@@ -13,16 +13,16 @@ const { Ciclo, CicloSchema } = require('./ciclo');
 const { TipoSolicitud, TipoSolicitudSchema } = require('./tipoSolicitud');
 const { EstatusSolicitud, EstatusSolicitudSchema } = require('./estatusSolicitud');
 const { Evaluador, EvaluadorSchema } = require('./evaluador'); 
-const { Alumno, AlumnoSchema } = require('.Alumno');  // Agregar a esta relación tablas situacion y tipoTramite
+// const { Alumno, AlumnoSchema } = require('./alumno');  // Agregar a esta relación tablas situacion y tipoTramite
 const { Nivel, NivelSchema } = require('./nivel');  
-const { Modalidad, ModalidadSchema } = require('./modalidad');  //  En pruebas
+const { Modalidad, ModalidadSchema } = require('./modalidad');  
 const { Solicitud, SolicitudSchema } = require('./solicitud');
 const { Programa, ProgramaSchema } = require('./programa');
-/*
-const { Alumno, AlumnoSchema } = require('.Alumno');
-const { AlumnoGrupo, AlumnoGrupoSchema } = require('.AlumnoGrupo');
-const { Asignatura, AsignaturaSchema } = require('.Asignatura');
-*/
+const { Cumplimiento, CumplimientoSchema } = require('./cumplimiento');
+const { ProgramaEvaluacion, ProgramaEvaluacionSchema } = require('./programaEvaluacion');
+const { EdificioNivel, EdificioNivelSchema } = require('./edificioNivel');
+const { PlantelEdificioNivel, PlantelEdificioNivelSchema } = require('./plantelEdificioNivel');
+
 function setupModels(sequelize) {
   Usuario.init(UsuarioSchema, Usuario.config(sequelize));
   Rol.init(RolSchema, Rol.config(sequelize));
@@ -39,15 +39,15 @@ function setupModels(sequelize) {
   EstatusSolicitud.init(EstatusSolicitudSchema, EstatusSolicitud.config(sequelize));
   TipoSolicitud.init(TipoSolicitudSchema, TipoSolicitud.config(sequelize));
   Solicitud.init(SolicitudSchema, Solicitud.config(sequelize));
-  Modalidad.init(ModalidadSchema, Modalidad.config(sequelize));  //  En pruebas
+  Modalidad.init(ModalidadSchema, Modalidad.config(sequelize));  
   Evaluador.init(EvaluadorSchema, Evaluador.config(sequelize)); 
   Nivel.init(NivelSchema, Nivel.config(sequelize)); 
   Programa.init(ProgramaSchema, Programa.config(sequelize));
-  Alumno.init(AlumnoSchema, Alumno.config(sequelize));  // Agregar a esta relación tablas situacion y tipoTramite
-  /*
-  Alumno_grupo.init(Alumno_grupoSchema, Alumno_grupo.config(sequelize));
-  Asignatura.init(AsignaturaSchema, Asignatura.config(sequelize));
- */
+  Cumplimiento.init(CumplimientoSchema, Cumplimiento.config(sequelize));
+  // Alumno.init(AlumnoSchema, Alumno.config(sequelize));  // Agregar a esta relación tablas situacion y tipoTramite
+  ProgramaEvaluacion.init(ProgramaEvaluacionSchema, ProgramaEvaluacion.config(sequelize));
+  EdificioNivel.init(EdificioNivelSchema, EdificioNivel.config(sequelize));
+  PlantelEdificioNivel.init(PlantelEdificioNivelSchema, PlantelEdificioNivel.config(sequelize));
 
   Usuario.associate(sequelize.models);
   Rol.associate(sequelize.models);
@@ -64,15 +64,15 @@ function setupModels(sequelize) {
   TipoSolicitud.associate(sequelize.models);
   EstatusSolicitud.associate(sequelize.models);
   Solicitud.associate(sequelize.models);
-  Modalidad.associate(sequelize.models);  // En pruebas
+  Modalidad.associate(sequelize.models);
   Evaluador.associate(sequelize.models);
   Nivel.associate(sequelize.models); 
   Programa.associate(sequelize.models);
-  Alumno.associate(sequelize.models);  //  Agregar a esta relación tablas situacion y tipoTramite
-  /*
-  AlumnoGrupo.associate(sequelize.models);
-  Asignatura.associate(sequelize.models);
-  AsignaturaHemerobibliografica.associate(sequelize.models); */
+  Cumplimiento.associate(sequelize.models);
+  // Alumno.associate(sequelize.models);  //  Agregar a esta relación tablas situacion y tipoTramite
+  ProgramaEvaluacion.associate(sequelize.models);
+  EdificioNivel.associate(sequelize.models);
+  PlantelEdificioNivel.associate(sequelize.models);
 }
 
 module.exports = setupModels;
