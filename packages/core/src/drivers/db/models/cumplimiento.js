@@ -1,7 +1,7 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const { MODALIDAD_TABLE } = require('./modalidad');
 
-const CUMPLIMIENTO_TABLE = 'cumplimiento';
+const CUMPLIMIENTO_TABLE = 'cumplimientos';
 
 const CumplimientoSchema = {
     id: {
@@ -51,18 +51,18 @@ const CumplimientoSchema = {
       },
     };
 
-    class cumplimiento extends Model {
-        static associate() {
-            this.belongsTo(models.modalidad, { as: 'modalidad' });
+    class Cumplimiento extends Model {
+        static associate(models) {
+            this.belongsTo(models.Modalidad, { as: 'modalidad' });
         }
       
         static config(sequelize) {
           return {
             sequelize,
             tableName: CUMPLIMIENTO_TABLE,
-            modelName: 'cumplimiento',
+            modelName: 'Cumplimiento',
             timestamps: false,
           };
         }
       }
-      module.exports = { CUMPLIMIENTO_TABLE, CumplimientoSchema, cumplimiento };
+      module.exports = { CUMPLIMIENTO_TABLE, CumplimientoSchema, Cumplimiento };

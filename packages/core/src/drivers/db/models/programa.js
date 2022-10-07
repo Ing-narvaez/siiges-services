@@ -54,7 +54,7 @@ const ProgramaSchema = {
   modalidadId: {
     allowNull: false,
     type: DataTypes.INTEGER,
-    //field: 'modalidad_id',
+    field: 'modalidad_id',
     references: {
       model: MODALIDAD_TABLE,
       key: 'id',
@@ -257,15 +257,16 @@ const ProgramaSchema = {
     defaultValue: null,
   },
 };
+
 class Programa extends Model {
   static associate(models) {
-    this.belongsTo(models.Evaluador, { as: 'evaluador' });
+    /* this.belongsTo(models.Evaluador, { as: 'evaluador' });
     this.belongsTo(models.Ciclo, { as: 'ciclo' });
     this.belongsTo(models.Nivel, { as: 'nivel' });
     this.belongsTo(models.Solicitud, { as: 'solicitud' });
     this.belongsTo(models.Modalidad, { as: 'modalidad' });
     this.belongsTo(models.Plantel, { as: 'plantel' });
-    this.belongsTo(models.Persona, { as: 'persona' });
+    this.belongsTo(models.Persona, { as: 'persona' }); */
   }
 
   static config(sequelize) {

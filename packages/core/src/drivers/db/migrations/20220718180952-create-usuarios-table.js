@@ -22,6 +22,7 @@ const { CUMPLIMIENTO_TABLE, CumplimientoSchema } = require('../models/cumplimien
 const { PROGRAMA_EVALUACION_TABLE, ProgramaEvaluacionSchema} = require('../models/programaEvaluacion');
 const { EDIFICIO_NIVEL_TABLE, EdificioNivelSchema } = require('../models/edificioNivel');
 const { PLANTEL_EDIFICIO_NIVEL_TABLE, PlantelEdificioNivelSchema} = require('../models/plantelEdificioNivel');
+const { PLANTEL_HIGIENE_TABLE, PlantelHigieneSchema} = require('../models/PlantelHigiene');
 
 module.exports = {
   async up(queryInterface) {
@@ -49,6 +50,7 @@ module.exports = {
     await queryInterface.createTable(PROGRAMA_EVALUACION_TABLE, ProgramaEvaluacionSchema);
     await queryInterface.createTable(EDIFICIO_NIVEL_TABLE, EdificioNivelSchema);
     await queryInterface.createTable(PLANTEL_EDIFICIO_NIVEL_TABLE, PlantelEdificioNivelSchema);
+    await queryInterface.createTable(PLANTEL_HIGIENE_TABLE, PlantelHigieneSchema);
   },
 
   async down(queryInterface) {
@@ -74,5 +76,6 @@ module.exports = {
     await queryInterface.dropTable(PROGRAMA_EVALUACION_TABLE);
     await queryInterface.dropTable(EDIFICIO_NIVEL_TABLE);
     await queryInterface.dropTable(PLANTEL_EDIFICIO_NIVEL_TABLE);
+    await queryInterface.dropTable(PLANTEL_HIGIENE_TABLE);
   },
 };

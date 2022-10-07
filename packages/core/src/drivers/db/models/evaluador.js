@@ -66,7 +66,7 @@ class Evaluador extends Model {
     return {
       sequelize,
       tableName: EVALUADOR_TABLE,
-      modelName: 'evaluador',
+      modelName: 'Evaluador',
       timestamps: false,
     };
   }

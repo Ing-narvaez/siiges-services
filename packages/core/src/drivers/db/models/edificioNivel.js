@@ -2,7 +2,7 @@ const { Model, DataTypes, Sequelize } = require('sequelize');
 
 const EDIFICIO_NIVEL_TABLE = 'edificiosNiveles';
 
-const EdificioNivelchema = {
+const EdificioNivelSchema = {
     id: {
         allowNull: false,
         autoIncrement: true,
@@ -47,4 +47,4 @@ class EdificioNivel extends Model {
     }
   }
 
-  module.exports = { EDIFICIO_NIVEL_TABLE, EdificioNivelchema, EdificioNivel };
+  module.exports = { EDIFICIO_NIVEL_TABLE, EdificioNivelSchema, EdificioNivel };
