@@ -21,7 +21,16 @@ const { Cumplimiento, CumplimientoSchema } = require('./cumplimiento');
 const { ProgramaEvaluacion, ProgramaEvaluacionSchema } = require('./programaEvaluacion');
 const { EdificioNivel, EdificioNivelSchema } = require('./edificioNivel');
 const { PlantelEdificioNivel, PlantelEdificioNivelSchema } = require('./plantelEdificioNivel');
+const { Higiene, HigieneSchema } = require('./Higiene');
 const { PlantelHigiene, PlantelHigieneSchema } = require('./PlantelHigiene');
+const { SeguridadSistema, SeguridadSistemaSchema } = require('./SeguridadSistema');
+const { PlantelSeguridadSistema, PlantelSeguridadSistemaSchema } = require('./PlantelSeguridadSistema');
+const { Turno, TurnoSchema } = require('./turno');
+const { ProgramaTurno, ProgramaTurnoSchema } = require('./ProgramaTurno');
+const { SolicitudUsuario, SolicitudUsuarioSchema } = require('./SolicitudUsuario');
+const { TipoInstalacion, TipoInstalacionSchema } = require('./TipoInstalacion');
+const { Infraestructura, InfraestructuraSchema } = require('./Infraestructura');
+
 
 function setupModels(sequelize) {
   Usuario.init(UsuarioSchema, Usuario.config(sequelize));
@@ -47,7 +56,15 @@ function setupModels(sequelize) {
   ProgramaEvaluacion.init(ProgramaEvaluacionSchema, ProgramaEvaluacion.config(sequelize));
   EdificioNivel.init(EdificioNivelSchema, EdificioNivel.config(sequelize));
   PlantelEdificioNivel.init(PlantelEdificioNivelSchema, PlantelEdificioNivel.config(sequelize));
+  Higiene.init(HigieneSchema, Higiene.config(sequelize));
   PlantelHigiene.init(PlantelHigieneSchema, PlantelHigiene.config(sequelize));
+  SeguridadSistema.init(SeguridadSistemaSchema, SeguridadSistema.config(sequelize));
+  PlantelSeguridadSistema.init(PlantelSeguridadSistemaSchema, PlantelSeguridadSistema.config(sequelize));
+  Turno.init(TurnoSchema, Turno.config(sequelize));
+  ProgramaTurno.init(ProgramaTurnoSchema, ProgramaTurno.config(sequelize));
+  SolicitudUsuario.init(SolicitudUsuarioSchema, SolicitudUsuario.config(sequelize));
+  TipoInstalacion.init(TipoInstalacionSchema, TipoInstalacion.config(sequelize));
+  Infraestructura.init(InfraestructuraSchema, Infraestructura.config(sequelize));
 
   Usuario.associate(sequelize.models);
   Rol.associate(sequelize.models);
@@ -72,7 +89,15 @@ function setupModels(sequelize) {
   ProgramaEvaluacion.associate(sequelize.models);
   EdificioNivel.associate(sequelize.models);
   PlantelEdificioNivel.associate(sequelize.models);
+  Higiene.associate(sequelize.models);
   PlantelHigiene.associate(sequelize.models);
+  SeguridadSistema.associate(sequelize.models);
+  PlantelSeguridadSistema.associate(sequelize.models);
+  Turno.associate(sequelize.models);
+  ProgramaTurno.associate(sequelize.models);
+  SolicitudUsuario.associate(sequelize.models);
+  TipoInstalacion.associate(sequelize.models);
+  Infraestructura.associate(sequelize.models);
 }
 
 module.exports = setupModels;

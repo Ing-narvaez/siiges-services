@@ -22,7 +22,15 @@ const { CUMPLIMIENTO_TABLE, CumplimientoSchema } = require('../models/cumplimien
 const { PROGRAMA_EVALUACION_TABLE, ProgramaEvaluacionSchema} = require('../models/programaEvaluacion');
 const { EDIFICIO_NIVEL_TABLE, EdificioNivelSchema } = require('../models/edificioNivel');
 const { PLANTEL_EDIFICIO_NIVEL_TABLE, PlantelEdificioNivelSchema} = require('../models/plantelEdificioNivel');
+const { HIGIENE_TABLE, HigieneSchema} = require('../models/Higiene');
 const { PLANTEL_HIGIENE_TABLE, PlantelHigieneSchema} = require('../models/PlantelHigiene');
+const { SEGURIDAD_SISTEMA_TABLE, SeguridadSistemaSchema} = require('../models/SeguridadSistema');
+const { PLANTEL_SEGURIDAD_SISTEMA_TABLE, PlantelSeguridadSistemaSchema} = require('../models/PlantelSeguridadSistema');
+const { TURNO_TABLE, TurnoSchema } = require('../models/turno');
+const { PROGRAMA_TURNO_TABLE, ProgramaTurnoSchema} = require('../models/ProgramaTurno');
+const { SOLICITUD_USUARIO_TABLE, SolicitudUsuarioSchema} = require('../models/SolicitudUsuario');
+const { TIPO_INSTALACION_TABLE, TipoInstalacionSchema} = require('../models/TipoInstalacion');
+const { INFRAESTRUCTURA_TABLE, InfraestructuraSchema} = require('../models/Infraestructura');
 
 module.exports = {
   async up(queryInterface) {
@@ -50,7 +58,15 @@ module.exports = {
     await queryInterface.createTable(PROGRAMA_EVALUACION_TABLE, ProgramaEvaluacionSchema);
     await queryInterface.createTable(EDIFICIO_NIVEL_TABLE, EdificioNivelSchema);
     await queryInterface.createTable(PLANTEL_EDIFICIO_NIVEL_TABLE, PlantelEdificioNivelSchema);
+    await queryInterface.createTable(HIGIENE_TABLE, HigieneSchema);
     await queryInterface.createTable(PLANTEL_HIGIENE_TABLE, PlantelHigieneSchema);
+    await queryInterface.createTable(SEGURIDAD_SISTEMA_TABLE, SeguridadSistemaSchema);
+    await queryInterface.createTable(PLANTEL_SEGURIDAD_SISTEMA_TABLE, PlantelSeguridadSistemaSchema);
+    await queryInterface.createTable(TURNO_TABLE, TurnoSchema);
+    await queryInterface.createTable(PROGRAMA_TURNO_TABLE, ProgramaTurnoSchema);
+    await queryInterface.createTable(SOLICITUD_USUARIO_TABLE, SolicitudUsuarioSchema);
+    await queryInterface.createTable(TIPO_INSTALACION_TABLE, TipoInstalacionSchema);
+    await queryInterface.createTable(INFRAESTRUCTURA_TABLE, InfraestructuraSchema);
   },
 
   async down(queryInterface) {
@@ -76,6 +92,14 @@ module.exports = {
     await queryInterface.dropTable(PROGRAMA_EVALUACION_TABLE);
     await queryInterface.dropTable(EDIFICIO_NIVEL_TABLE);
     await queryInterface.dropTable(PLANTEL_EDIFICIO_NIVEL_TABLE);
+    await queryInterface.dropTable(HIGIENE_TABLE);
     await queryInterface.dropTable(PLANTEL_HIGIENE_TABLE);
+    await queryInterface.dropTable(SEGURIDAD_SISTEMA_TABLE);
+    await queryInterface.dropTable(PLANTEL_SEGURIDAD_SISTEMA_TABLE);
+    await queryInterface.dropTable(TURNO_TABLE);
+    await queryInterface.dropTable(PROGRAMA_TURNO_TABLE);
+    await queryInterface.dropTable(SOLICITUD_USUARIO_TABLE);
+    await queryInterface.dropTable(TIPO_INSTALACION_TABLE);
+    await queryInterface.dropTable(INFRAESTRUCTURA_TABLE);
   },
 };
